@@ -2,6 +2,26 @@
    Navexa Pharmaceutical (SMC) Pvt Ltd — Main JavaScript
    ===================================================== */
 
+// ── BRAND LOADER (PREMIUM CORPORATE ANIMATION)
+const brandLoader = document.getElementById('brand-loader');
+if (brandLoader) {
+  // Check if user already saw brand loader in this session
+  const hasSeenBrand = sessionStorage.getItem('navexa_brand_intro');
+  if (hasSeenBrand) {
+    brandLoader.classList.add('brand-loader--hidden');
+    brandLoader.remove();
+  } else {
+    sessionStorage.setItem('navexa_brand_intro', 'seen');
+    // Allow animation sequence (1.55s total) then smoothly fade out
+    setTimeout(() => {
+      brandLoader.classList.add('brand-loader--hidden');
+      setTimeout(() => {
+        brandLoader.remove();
+      }, 450);
+    }, 1550);
+  }
+}
+
 // ── NAV SCROLL EFFECT
 const nav = document.getElementById('main-nav');
 if (nav) {

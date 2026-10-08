@@ -501,3 +501,108 @@ h1, h2, h3, h4, h5, h6 {
 .news-card__link { font-size: 13px; font-weight: 600; color: var(--color-on-secondary-container); text-decoration: none; }
 .news-card__link:hover { color: var(--color-primary-container); }
 
+/* ── BRAND LOADER (PREMIUM CORPORATE ANIMATION) ── */
+.brand-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: all;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.4s ease;
+}
+
+.brand-loader--hidden {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+.brand-loader__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 1.5rem;
+  max-width: 90vw;
+}
+
+.brand-loader__title {
+  font-family: var(--font-headline);
+  font-size: clamp(28px, 4.5vw, 42px);
+  font-weight: 700;
+  color: #0B2545;
+  letter-spacing: 0.14em;
+  margin: 0;
+  line-height: 1.2;
+  opacity: 0;
+  transform: translateY(6px);
+  animation: brandLoaderTitle 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+}
+
+.brand-loader__line {
+  height: 1.5px;
+  background: #007A87;
+  width: 0;
+  opacity: 0;
+  margin: 14px auto 12px;
+  animation: brandLoaderLine 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.65s forwards;
+}
+
+.brand-loader__descriptor {
+  font-family: var(--font-body);
+  font-size: clamp(12px, 1.8vw, 14px);
+  font-weight: 500;
+  color: #555962;
+  letter-spacing: 0.05em;
+  margin: 0;
+  opacity: 0;
+  transform: translateY(4px);
+  animation: brandLoaderDesc 0.35s ease-out 1.0s forwards;
+}
+
+@keyframes brandLoaderTitle {
+  0% {
+    opacity: 0;
+    transform: translateY(6px);
+    letter-spacing: 0.18em;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    letter-spacing: 0.08em;
+  }
+}
+
+@keyframes brandLoaderLine {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  100% {
+    width: 140px;
+    opacity: 1;
+  }
+}
+
+@keyframes brandLoaderDesc {
+  0% {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-loader {
+    display: none !important;
+  }
+}
+
