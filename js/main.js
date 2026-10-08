@@ -19,6 +19,24 @@ if (hamburger && navLinks) {
     hamburger.setAttribute('aria-expanded', String(isOpen));
     document.body.style.overflow = isOpen ? 'hidden' : '';
   });
+
+  // Close when clicking any link
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('nav__links--open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // Close if resized to desktop
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 900 && navLinks.classList.contains('nav__links--open')) {
+      navLinks.classList.remove('nav__links--open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+  });
 }
 
 // ── SMOOTH SCROLL

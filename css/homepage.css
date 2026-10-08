@@ -392,18 +392,35 @@
 /* ── RESPONSIVE ── */
 @media (max-width: 1024px) {
   .featured-drug__inner { grid-template-columns: 1fr; }
-  .molecule-card { width: 100%; max-width: 360px; }
+  .molecule-card { width: 100%; max-width: 380px; }
   .contact-grid { grid-template-columns: 1fr; }
   .footer__top { grid-template-columns: 1fr; gap: var(--space-xl); }
   .footer__nav-cols { grid-template-columns: repeat(2, 1fr); }
 }
 
-@media (max-width: 640px) {
-  .hero { padding: 80px 0 60px; }
-  .hero__stats { gap: var(--space-md); }
+@media (max-width: 768px) {
+  .hero { padding: 60px 0 50px; }
+  .hero__headline { font-size: 30px; line-height: 1.25; }
+  .hero__subtext { font-size: 15px; line-height: 1.6; }
+  .hero__pillars { grid-template-columns: 1fr; gap: var(--space-md); margin-top: var(--space-md); padding-top: var(--space-md); }
+  .pipeline-table { min-width: 580px; }
+  .pipeline-table-wrapper { -webkit-overflow-scrolling: touch; }
+  .pipeline-table-footer { flex-direction: column; align-items: flex-start; gap: var(--space-sm); }
   .trial-metrics { gap: var(--space-lg); }
-  .pipeline-table-footer { flex-direction: column; align-items: flex-start; }
-  .footer__nav-cols { grid-template-columns: 1fr 1fr; }
-  .footer__bottom { flex-direction: column; align-items: flex-start; }
+  .trial-metric__value { font-size: 26px; }
+  .contact-info__title { font-size: 26px; }
+  .contact-form { padding: var(--space-lg); }
+}
+
+@media (max-width: 480px) {
+  .hero { padding: 50px 0 40px; }
+  .hero__headline { font-size: 24px; line-height: 1.25; }
+  .hero__actions { flex-direction: column; width: 100%; gap: var(--space-sm); }
+  .hero__actions .btn { width: 100%; justify-content: center; }
+  .featured-drug__title { font-size: 24px; }
+  .featured-drug__inn { font-size: 15px; }
+  .trial-metrics { flex-direction: column; gap: var(--space-md); }
+  .footer__nav-cols { grid-template-columns: 1fr; gap: var(--space-lg); }
+  .footer__bottom { flex-direction: column; align-items: flex-start; gap: var(--space-sm); }
 }
 

@@ -1,4 +1,4 @@
-﻿/* =====================================================
+/* =====================================================
    Navexa pharmaceutical (SMC) pvt Ltd DESIGN SYSTEM — Clinical Precision & Life Sciences
    Based on Stitch "Clinical Precision & Life Sciences" theme
    Primary: #0B2545 (Navy) | Secondary: #007A87 (Teal) | Tertiary: #2993D6 (Cyan)
@@ -355,7 +355,7 @@ h1, h2, h3, h4, h5, h6 {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(248,249,255,0.92);
+  background: rgba(248,249,255,0.95);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--color-outline-variant);
@@ -366,8 +366,9 @@ h1, h2, h3, h4, h5, h6 {
 .nav__inner {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   height: 64px;
-  gap: var(--space-xl);
+  gap: var(--space-md);
 }
 
 .nav__logo {
@@ -379,10 +380,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 .nav__brand {
   font-family: var(--font-headline);
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 400;
   color: var(--color-on-background);
   letter-spacing: -0.01em;
+  white-space: nowrap;
 }
 .nav__brand strong { font-weight: 700; color: var(--color-primary-container); }
 
@@ -391,7 +393,6 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   gap: var(--space-xs);
   list-style: none;
-  flex: 1;
 }
 .nav__link {
   text-decoration: none;
@@ -401,26 +402,88 @@ h1, h2, h3, h4, h5, h6 {
   padding: 6px 12px;
   border-radius: var(--radius);
   transition: background var(--transition), color var(--transition);
+  white-space: nowrap;
 }
 .nav__link:hover { background: var(--color-surface-container); color: var(--color-on-surface); }
-.nav__link--active { color: var(--color-primary-container); font-weight: 600; }
+.nav__link--active { color: var(--color-primary-container); font-weight: 600; background: rgba(11,37,69,0.06); }
 
 .nav__actions { display: flex; align-items: center; gap: var(--space-sm); flex-shrink: 0; }
 
 .nav__hamburger {
   display: none;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 5px;
+  width: 40px;
+  height: 40px;
   padding: 8px;
-  border: none;
-  background: none;
+  border: 1px solid var(--color-outline-variant);
+  border-radius: var(--radius);
+  background: var(--color-surface-container-lowest);
   cursor: pointer;
+  transition: background var(--transition), border-color var(--transition);
 }
-.nav__hamburger span { display: block; width: 22px; height: 2px; background: var(--color-on-surface); border-radius: 2px; transition: var(--transition); }
+.nav__hamburger:hover {
+  background: var(--color-surface-container);
+  border-color: var(--color-outline);
+}
+.nav__hamburger span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--color-on-surface);
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
 
 @media (max-width: 900px) {
-  .nav__links { display: none; }
+  .nav__links {
+    display: none;
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #ffffff;
+    flex-direction: column;
+    padding: var(--space-lg) var(--space-md);
+    gap: 8px;
+    border-top: 1px solid var(--color-outline-variant);
+    overflow-y: auto;
+    z-index: 99;
+  }
+  .nav__links.nav__links--open {
+    display: flex;
+    animation: fadeInMenu 0.2s ease-out;
+  }
+  @keyframes fadeInMenu {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .nav__link {
+    font-size: 16px;
+    padding: 12px 16px;
+    width: 100%;
+    display: block;
+    border-radius: var(--radius);
+  }
   .nav__hamburger { display: flex; }
+  .nav__hamburger[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .nav__hamburger[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+  }
+  .nav__hamburger[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+}
+
+@media (max-width: 480px) {
+  .nav__brand { font-size: 14px; }
+  .nav__actions .btn { padding: 6px 12px; font-size: 12px; }
+  .container { padding: 0 1rem; }
 }
 
 /* ── NEWS CARD ── */
