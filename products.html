@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Navexa Pharmaceutical (SMC) Pvt Ltd — Products Catalogue &amp; Portfolio</title>
+  <meta name="description" content="Explore Navexa Pharmaceutical (SMC) Pvt Ltd's pharmaceutical product portfolio and clinical pipeline candidates across core therapeutic areas." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/design-system.css" />
+  <style>
+    .products-hero { background: linear-gradient(180deg, #071930 0%, #0B2545 100%); padding: 90px 0 70px; border-bottom: 1px solid rgba(119,141,178,0.15); color: #ffffff; }
+    .products-hero__title { font-size: clamp(28px, 4vw, 44px); font-weight: 700; letter-spacing: -0.02em; color: #ffffff; margin-bottom: var(--space-md); }
+    .products-hero__subtitle { font-size: 16px; color: rgba(234,241,255,0.8); max-width: 620px; line-height: 1.65; }
+
+    .filter-bar { padding: var(--space-lg) 0; background: var(--color-surface-container-lowest); border-bottom: 1px solid var(--color-outline-variant); position: sticky; top: 64px; z-index: 50; }
+    .filter-bar__inner { display: flex; align-items: center; gap: var(--space-md); flex-wrap: wrap; }
+    .filter-btn { padding: 6px 16px; border: 1px solid var(--color-outline-variant); border-radius: var(--radius-full); font-size: 13px; font-weight: 500; background: none; cursor: pointer; color: var(--color-on-surface-variant); transition: all var(--transition); }
+    .filter-btn:hover, .filter-btn.active { background: var(--color-primary-container); color: #fff; border-color: var(--color-primary-container); }
+    .filter-search { display: flex; align-items: center; gap: var(--space-sm); margin-left: auto; }
+    .filter-search input { padding: 8px 14px; border: 1px solid var(--color-outline-variant); border-radius: var(--radius); font-size: 14px; width: 220px; outline: none; color: var(--color-on-surface); background: var(--color-surface-container-lowest); }
+    .filter-search input:focus { border-color: #007A87; box-shadow: 0 0 0 2px rgba(0,122,135,0.12); }
+
+    .products-grid { padding: var(--space-2xl) 0; }
+    .product-card { background: var(--color-surface-container-lowest); border: 1px solid var(--color-outline-variant); border-radius: var(--radius-lg); overflow: hidden; transition: box-shadow var(--transition), transform var(--transition); }
+    .product-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+    .product-card__header { background: var(--color-primary-container); padding: var(--space-lg); position: relative; overflow: hidden; }
+    .product-card__code { font-family: var(--font-mono); font-size: 11px; color: var(--color-on-primary-container); letter-spacing: 0.06em; position: relative; z-index: 1; }
+    .product-card__name { font-size: 22px; font-weight: 700; color: #fff; margin: 4px 0 8px; position: relative; z-index: 1; letter-spacing: -0.01em; }
+    .product-card__inn { font-size: 12px; color: rgba(234,241,255,0.75); position: relative; z-index: 1; }
+    .product-card__body { padding: var(--space-lg); }
+    .product-card__indication { font-size: 15px; font-weight: 600; color: var(--color-on-background); margin-bottom: var(--space-sm); }
+    .product-card__desc { font-size: 13px; color: var(--color-on-surface-variant); line-height: 1.6; margin-bottom: var(--space-md); }
+    .product-card__meta { display: flex; gap: var(--space-sm); flex-wrap: wrap; align-items: center; margin-bottom: var(--space-md); }
+    .product-card__actions { display: flex; gap: var(--space-sm); padding-top: var(--space-md); border-top: 1px solid var(--color-outline-variant); }
+    .product-card__actions .btn { flex: 1; justify-content: center; font-size: 13px; padding: 9px 12px; }
+
+    .data-point { display: flex; flex-direction: column; gap: 2px; margin-bottom: var(--space-md); }
+    .data-point__label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-on-surface-variant); }
+    .data-point__value { font-size: 14px; font-weight: 600; color: var(--color-on-surface); font-variant-numeric: tabular-nums; }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="main-nav">
+    <div class="nav__inner container">
+      <a href="index.html" class="nav__logo">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="6" fill="#0B2545"/><path d="M8 10h4l3 8 3-8h4v12h-3v-7l-2.5 7h-3L11 15v7H8V10z" fill="#7AD4E2"/><circle cx="24" cy="10" r="2" fill="#2993D6"/></svg>
+        <span class="nav__brand">Navexa <strong>Pharmaceutical (SMC) Pvt Ltd</strong></span>
+      </a>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="index.html" class="nav__link">Home</a></li>
+        <li><a href="products.html" class="nav__link nav__link--active">Products</a></li>
+        <li><a href="pharmacovigilance.html" class="nav__link">Drug Safety</a></li>
+        <li><a href="dossier.html" class="nav__link">Dossiers</a></li>
+        <li><a href="index.html#pipeline" class="nav__link">Pipeline</a></li>
+        <li><a href="index.html#contact" class="nav__link">Contact</a></li>
+      </ul>
+      <div class="nav__actions">
+        <a href="index.html#contact" class="btn btn--outline btn--sm">Contact Us</a>
+        <button class="nav__hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="products-hero">
+    <div class="container">
+      <h1 class="products-hero__title">Pharmaceutical Product Portfolio</h1>
+      <p class="products-hero__subtitle">Explore pharmaceutical products, clinical candidates, and therapeutic formulations across our core operational domains.</p>
+    </div>
+  </section>
+
+  <div class="filter-bar">
+    <div class="container filter-bar__inner">
+      <button class="filter-btn active" data-filter="all">All Products</button>
+      <button class="filter-btn" data-filter="approved">Formulations</button>
+      <button class="filter-btn" data-filter="phase3">Phase III</button>
+      <button class="filter-btn" data-filter="oncology">Oncology</button>
+      <button class="filter-btn" data-filter="cardio">Cardiovascular</button>
+      <button class="filter-btn" data-filter="neuro">Neuroscience</button>
+      <div class="filter-search">
+        <input type="search" id="product-search" placeholder="Search products..." aria-label="Search products" />
+      </div>
+    </div>
+  </div>
+
+  <section class="products-grid">
+    <div class="container">
+      <div class="grid grid--3col" id="products-grid">
+
+        <div class="product-card" data-category="cardio phase3">
+          <div class="product-card__header">
+            <span class="product-card__code">NVP-4821</span>
+            <div class="product-card__name">Cardiozep&#174;</div>
+            <div class="product-card__inn">etavostatin sodium</div>
+          </div>
+          <div class="product-card__body">
+            <div class="product-card__indication">Heart Failure (HFrEF)</div>
+            <p class="product-card__desc">Dual SGLT2 and neprilysin inhibitor currently evaluated in Phase III clinical development for adult patients with reduced ejection fraction.</p>
+            <div class="product-card__meta">
+              <span class="phase-badge phase-badge--iii">PHASE III</span>
+              <span class="badge badge--verified">CLINICAL STAGE</span>
+            </div>
+            <div class="data-point"><span class="data-point__label">Study Cohort</span><span class="data-point__value">Multi-center clinical trial</span></div>
+            <div class="data-point"><span class="data-point__label">Route</span><span class="data-point__value">Oral tablet (once daily)</span></div>
+            <div class="product-card__actions">
+              <a href="dossier.html" class="btn btn--primary">View Dossier</a>
+              <a href="index.html#contact" class="btn btn--outline">Inquiry</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="neuro phase3">
+          <div class="product-card__header">
+            <span class="product-card__code">NVP-7103</span>
+            <div class="product-card__name">Neurosolv&#8482;</div>
+            <div class="product-card__inn">alzumevab</div>
+          </div>
+          <div class="product-card__body">
+            <div class="product-card__indication">Alzheimer's Disease (Mild-Moderate)</div>
+            <p class="product-card__desc">Monoclonal antibody targeted at soluble protein protofibrils, undergoing clinical evaluation for cognitive stabilization.</p>
+            <div class="product-card__meta">
+              <span class="phase-badge phase-badge--iii">PHASE III</span>
+              <span class="badge badge--modality">Biologic (mAb)</span>
+            </div>
+            <div class="data-point"><span class="data-point__label">Target</span><span class="data-point__value">Protofibril aggregate clearance</span></div>
+            <div class="data-point"><span class="data-point__label">Route</span><span class="data-point__value">Intravenous infusion</span></div>
+            <div class="product-card__actions">
+              <a href="dossier.html" class="btn btn--primary">View Details</a>
+              <a href="index.html#contact" class="btn btn--outline">Inquiry</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="oncology phase3">
+          <div class="product-card__header" style="background: #1a3060;">
+            <span class="product-card__code">NVP-8890</span>
+            <div class="product-card__name">Oncovance&#8482;</div>
+            <div class="product-card__inn">lumicartoleucel</div>
+          </div>
+          <div class="product-card__body">
+            <div class="product-card__indication">Non-Small Cell Lung Cancer</div>
+            <p class="product-card__desc">Autologous cellular therapy targeting PD-L1+ solid tumors with ongoing dose-expansion clinical studies.</p>
+            <div class="product-card__meta">
+              <span class="phase-badge phase-badge--ii">PHASE II</span>
+              <span class="badge badge--modality">Cell Therapy</span>
+            </div>
+            <div class="data-point"><span class="data-point__label">Modality</span><span class="data-point__value">Chimeric Antigen Receptor T-cell</span></div>
+            <div class="data-point"><span class="data-point__label">Indication</span><span class="data-point__value">Refractory NSCLC</span></div>
+            <div class="product-card__actions">
+              <a href="dossier.html" class="btn btn--primary">View Profile</a>
+              <a href="index.html#contact" class="btn btn--outline">Inquiry</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="approved cardio">
+          <div class="product-card__header" style="background: #155e75;">
+            <span class="product-card__code">NVP-3310</span>
+            <div class="product-card__name">Statovrin&#174;</div>
+            <div class="product-card__inn">rosuvancide calcium</div>
+          </div>
+          <div class="product-card__body">
+            <div class="product-card__indication">Hyperlipidemia / ASCVD Risk</div>
+            <p class="product-card__desc">Extended-release PCSK9 inhibitor formulation indicated for patients requiring lipid management and secondary prevention.</p>
+            <div class="product-card__meta">
+              <span class="phase-badge" style="background: #047857; color: #86efac; font-family: var(--font-mono); font-size: 10px; font-weight: 700; letter-spacing: 0.06em; padding: 3px 10px; border-radius: 9999px;">FORMULATION</span>
+              <span class="badge badge--modality">PCSK9i</span>
+            </div>
+            <div class="data-point"><span class="data-point__label">Dosage Form</span><span class="data-point__value">Subcutaneous Injection</span></div>
+            <div class="data-point"><span class="data-point__label">Packaging</span><span class="data-point__value">Pre-filled auto-injector</span></div>
+            <div class="product-card__actions">
+              <a href="dossier.html" class="btn btn--primary">Product Monograph</a>
+              <a href="index.html#contact" class="btn btn--outline">Inquiry</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="approved neuro">
+          <div class="product-card__header" style="background: #312e81;">
+            <span class="product-card__code">NVP-5520</span>
+            <div class="product-card__name">Cognexar&#174;</div>
+            <div class="product-card__inn">memavostatin</div>
+          </div>
+          <div class="product-card__body">
+            <div class="product-card__indication">Parkinson's Disease Support</div>
+            <p class="product-card__desc">Selective monoamine oxidase inhibitor indicated for the symptomatic management of Parkinsonian motor symptoms.</p>
+            <div class="product-card__meta">
+              <span class="phase-badge" style="background: #047857; color: #86efac; font-family: var(--font-mono); font-size: 10px; font-weight: 700; letter-spacing: 0.06em; padding: 3px 10px; border-radius: 9999px;">FORMULATION</span>
+              <span class="badge badge--modality">Small Molecule</span>
+            </div>
+            <div class="data-point"><span class="data-point__label">Dosage Form</span><span class="data-point__value">Oral tablet (5mg, 10mg)</span></div>
+            <div class="data-point"><span class="data-point__label">Stability</span><span class="data-point__value">Controlled room temperature</span></div>
+            <div class="product-card__actions">
+              <a href="dossier.html" class="btn btn--primary">Product Monograph</a>
+              <a href="index.html#contact" class="btn btn--outline">Inquiry</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="oncology phase3">
+          <div class="product-card__header" style="background: #7c2d12;">
+            <span class="product-card__code">NVP-2910</span>
+            <div class="product-card__name">Immunvaze&#8482;</div>
+            <div class="product-card__inn">intevamab</div>
+          </div>
+          <div class="product-card__body">
+            <div class="product-card__indication">Solid Tumor Oncology</div>
+            <p class="product-card__desc">Targeted immune checkpoint modulator evaluated in combination regimens for advanced refractory malignancies.</p>
+            <div class="product-card__meta">
+              <span class="phase-badge phase-badge--iii">PHASE III</span>
+              <span class="badge badge--modality">Biologic (mAb)</span>
+            </div>
+            <div class="data-point"><span class="data-point__label">Target Pathway</span><span class="data-point__value">Immune Checkpoint Modulation</span></div>
+            <div class="data-point"><span class="data-point__label">Status</span><span class="data-point__value">Phase III Active Protocol</span></div>
+            <div class="product-card__actions">
+              <a href="dossier.html" class="btn btn--primary">View Profile</a>
+              <a href="index.html#contact" class="btn btn--outline">Inquiry</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer" id="site-footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <div class="nav__logo"><svg width="28" height="28" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="6" fill="#0B2545"/><path d="M8 10h4l3 8 3-8h4v12h-3v-7l-2.5 7h-3L11 15v7H8V10z" fill="#7AD4E2"/><circle cx="24" cy="10" r="2" fill="#2993D6"/></svg><span class="nav__brand footer__brand-text">Navexa <strong>Pharmaceutical (SMC) Pvt Ltd</strong></span></div>
+          <p class="footer__tagline">Dedicated to pharmaceutical quality, research standards, and patient safety.</p>
+        </div>
+        <div class="footer__nav-cols">
+          <div class="footer__col"><h4 class="footer__col-title">Products</h4><ul class="footer__links"><li><a href="products.html">Catalogue</a></li><li><a href="dossier.html">Cardiozep Dossier</a></li></ul></div>
+          <div class="footer__col"><h4 class="footer__col-title">Compliance</h4><ul class="footer__links"><li><a href="pharmacovigilance.html">Drug Safety</a></li><li><a href="pharmacovigilance.html">Adverse Event Reporting</a></li></ul></div>
+          <div class="footer__col"><h4 class="footer__col-title">Company</h4><ul class="footer__links"><li><a href="index.html">Home</a></li><li><a href="index.html#contact">Contact</a></li></ul></div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__legal">&copy; 2026 Navexa Pharmaceutical (SMC) Pvt Ltd. All rights reserved. Always refer to current approved prescribing documentation.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const productCards = document.querySelectorAll('.product-card');
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const f = btn.dataset.filter;
+        productCards.forEach(card => {
+          card.style.display = (f === 'all' || card.dataset.category.includes(f)) ? '' : 'none';
+        });
+      });
+    });
+    const searchInput = document.getElementById('product-search');
+    if (searchInput) {
+      searchInput.addEventListener('input', function() {
+        const q = this.value.toLowerCase();
+        productCards.forEach(card => {
+          card.style.display = card.textContent.toLowerCase().includes(q) ? '' : 'none';
+        });
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,409 @@
+/* =====================================================
+   Navexa pharmaceutical (SMC) pvt Ltd HOMEPAGE STYLES
+   ===================================================== */
+
+/* ── HERO ── */
+.hero {
+  position: relative;
+  background: linear-gradient(180deg, #071930 0%, #0B2545 100%);
+  color: var(--color-inverse-on-surface);
+  padding: 100px 0 80px;
+  border-bottom: 1px solid rgba(119,141,178,0.15);
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.hero__headline {
+  font-size: clamp(32px, 5vw, 50px);
+  font-weight: 700;
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+  color: var(--color-inverse-on-surface);
+  max-width: 720px;
+}
+.hero__headline-accent {
+  color: #7AD4E2;
+}
+
+.hero__subtext {
+  font-size: 17px;
+  line-height: 1.7;
+  color: rgba(234,241,255,0.8);
+  max-width: 620px;
+}
+
+.hero__actions {
+  display: flex;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.hero .btn--primary {
+  background: var(--color-on-secondary-container);
+  color: #ffffff;
+  border-color: var(--color-on-secondary-container);
+}
+.hero .btn--primary:hover { background: #008796; }
+
+.hero .btn--outline {
+  border-color: rgba(119,141,178,0.4);
+  color: var(--color-inverse-on-surface);
+}
+.hero .btn--outline:hover { background: rgba(255,255,255,0.07); }
+
+/* ── HERO PILLARS ── */
+.hero__pillars {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-lg);
+  margin-top: var(--space-lg);
+  padding-top: var(--space-lg);
+  border-top: 1px solid rgba(119,141,178,0.2);
+}
+.pillar-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.pillar-item__title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+}
+.pillar-item__desc {
+  font-size: 13px;
+  line-height: 1.55;
+  color: rgba(234,241,255,0.7);
+}
+
+/* ── THERAPEUTIC CARDS ── */
+.therapeutic-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  background: var(--color-surface-container-lowest);
+  border: 1px solid var(--color-outline-variant);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  text-decoration: none;
+  color: inherit;
+  transition: box-shadow var(--transition), border-color var(--transition), transform var(--transition);
+}
+.therapeutic-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-on-secondary-container);
+  transform: translateY(-3px);
+}
+
+.therapeutic-card__icon {
+  width: 52px; height: 52px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-xs);
+}
+.therapeutic-card__icon--oncology { background: rgba(186,26,26,0.08); color: #b91c1c; }
+.therapeutic-card__icon--cardiology { background: rgba(180,83,9,0.08); color: #b45309; }
+.therapeutic-card__icon--neurology { background: rgba(41,147,214,0.1); color: #2993D6; }
+.therapeutic-card__icon--immunology { background: rgba(0,122,135,0.1); color: #007A87; }
+.therapeutic-card__icon--rare { background: rgba(124,92,252,0.08); color: #7c3aed; }
+.therapeutic-card__icon--infectious { background: rgba(4,120,87,0.08); color: #047857; }
+
+.therapeutic-card__title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-on-background);
+}
+.therapeutic-card__desc {
+  font-size: 14px;
+  color: var(--color-on-surface-variant);
+  line-height: 1.6;
+  flex: 1;
+}
+.therapeutic-card__meta { margin-top: auto; padding-top: var(--space-md); }
+
+/* ── PIPELINE TABLE ── */
+.pipeline-table-wrapper {
+  border: 1px solid var(--color-outline-variant);
+  border-radius: var(--radius-lg);
+  overflow: auto;
+  background: var(--color-surface-container-lowest);
+  box-shadow: var(--shadow-sm);
+}
+
+.pipeline-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.pipeline-table thead tr {
+  background: var(--color-surface-container-low);
+  border-bottom: 1.5px solid var(--color-outline-variant);
+}
+
+.pipeline-table th {
+  padding: 12px 16px;
+  text-align: left;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-on-surface-variant);
+  white-space: nowrap;
+}
+
+.pipeline-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--color-outline-variant);
+  color: var(--color-on-surface);
+  vertical-align: middle;
+}
+
+.pipeline-table tbody tr:nth-child(even) { background: var(--color-surface-container-lowest); }
+.pipeline-table tbody tr:nth-child(odd) { background: var(--color-surface); }
+.pipeline-table tbody tr:last-child td { border-bottom: none; }
+.pipeline-table tbody tr:hover { background: var(--color-surface-container); }
+
+.pipeline-table__program { display: flex; flex-direction: column; gap: 2px; }
+.program-code { font-family: var(--font-mono); font-size: 12px; color: var(--color-on-surface-variant); }
+.program-name { font-weight: 600; color: var(--color-primary-container); font-size: 14px; }
+
+.pipeline-table-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: var(--space-lg);
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+.pipeline-disclaimer { font-size: 12px; color: var(--color-on-surface-variant); font-family: var(--font-mono); }
+
+/* ── FEATURED DRUG ── */
+.featured-drug__inner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--space-2xl);
+  align-items: center;
+}
+
+.featured-drug__title {
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-inverse-on-surface);
+  margin-bottom: var(--space-sm);
+  line-height: 1.2;
+}
+.featured-drug__inn {
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--color-on-primary-container);
+  display: block;
+}
+
+.featured-drug__phase { display: flex; gap: var(--space-sm); flex-wrap: wrap; margin-bottom: var(--space-lg); }
+
+.featured-drug__desc {
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(234,241,255,0.8);
+  max-width: 560px;
+  margin-bottom: var(--space-xl);
+}
+
+.trial-metrics {
+  display: flex;
+  gap: var(--space-xl);
+  margin-bottom: var(--space-xl);
+  flex-wrap: wrap;
+}
+.trial-metric { display: flex; flex-direction: column; gap: 4px; }
+.trial-metric__value {
+  font-family: var(--font-mono);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--color-inverse-on-surface);
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+.trial-metric__label { font-size: 12px; color: var(--color-on-primary-container); letter-spacing: 0.04em; text-transform: uppercase; }
+
+/* ── MOLECULE CARD ── */
+.molecule-card {
+  background: rgba(11,25,45,0.6);
+  border: 1px solid rgba(119,141,178,0.25);
+  border-radius: var(--radius-xl);
+  padding: var(--space-lg);
+  width: 300px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.molecule-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid rgba(119,141,178,0.15);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: var(--color-on-primary-container);
+}
+
+.molecule-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.molecule-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: var(--space-md);
+  padding-top: var(--space-sm);
+  border-top: 1px solid rgba(119,141,178,0.15);
+}
+.molecule-card__footer .text-xxs {
+  font-family: var(--font-mono);
+  color: var(--color-on-primary-container);
+  font-size: 10px;
+}
+
+/* ── CONTACT ── */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: var(--space-2xl);
+  align-items: start;
+}
+
+.contact-info__title {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: var(--color-on-background);
+  margin-bottom: var(--space-md);
+}
+.contact-info__desc {
+  font-size: 15px;
+  color: var(--color-on-surface-variant);
+  line-height: 1.6;
+  margin-bottom: var(--space-xl);
+}
+
+.contact-channels { display: flex; flex-direction: column; gap: var(--space-md); }
+.contact-channel {
+  display: flex;
+  gap: var(--space-md);
+  align-items: flex-start;
+}
+.contact-channel svg { flex-shrink: 0; margin-top: 2px; color: var(--color-on-secondary-container); }
+.contact-channel__label { display: block; font-size: 11px; font-family: var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-on-surface-variant); margin-bottom: 2px; }
+.contact-channel__value { display: block; font-size: 14px; color: var(--color-on-surface); font-weight: 500; }
+
+.contact-form {
+  background: var(--color-surface-container-lowest);
+  border: 1px solid var(--color-outline-variant);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ── FOOTER ── */
+.footer {
+  background: var(--color-inverse-surface);
+  color: var(--color-inverse-on-surface);
+  padding: var(--space-2xl) 0 0;
+}
+
+.footer__top {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: var(--space-2xl);
+  padding-bottom: var(--space-2xl);
+  border-bottom: 1px solid rgba(119,141,178,0.15);
+}
+
+.footer__brand-text { color: var(--color-inverse-on-surface) !important; }
+.footer__brand-text strong { color: var(--color-on-primary-container) !important; }
+
+.footer__tagline {
+  font-size: 13px;
+  color: rgba(234,241,255,0.6);
+  line-height: 1.6;
+  margin-top: var(--space-md);
+}
+
+.footer__nav-cols {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-lg);
+}
+
+.footer__col-title {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-on-primary-container);
+  margin-bottom: var(--space-md);
+}
+.footer__links { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.footer__links a {
+  text-decoration: none;
+  font-size: 14px;
+  color: rgba(234,241,255,0.65);
+  transition: color var(--transition);
+}
+.footer__links a:hover { color: var(--color-inverse-on-surface); }
+
+.footer__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-lg);
+  padding: var(--space-lg) 0;
+  flex-wrap: wrap;
+}
+.footer__legal { font-size: 12px; color: rgba(234,241,255,0.4); line-height: 1.6; max-width: 700px; }
+.footer__certifications { display: flex; gap: var(--space-sm); flex-wrap: wrap; }
+.footer__certifications .badge--phase {
+  background: rgba(119,141,178,0.1);
+  color: var(--color-on-primary-container);
+  border-color: rgba(119,141,178,0.2);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .featured-drug__inner { grid-template-columns: 1fr; }
+  .molecule-card { width: 100%; max-width: 360px; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .footer__top { grid-template-columns: 1fr; gap: var(--space-xl); }
+  .footer__nav-cols { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .hero { padding: 80px 0 60px; }
+  .hero__stats { gap: var(--space-md); }
+  .trial-metrics { gap: var(--space-lg); }
+  .pipeline-table-footer { flex-direction: column; align-items: flex-start; }
+  .footer__nav-cols { grid-template-columns: 1fr 1fr; }
+  .footer__bottom { flex-direction: column; align-items: flex-start; }
+}
+
