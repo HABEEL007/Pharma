@@ -5,20 +5,23 @@
 // ── BRAND LOADER (PREMIUM CORPORATE ANIMATION)
 const brandLoader = document.getElementById('brand-loader');
 if (brandLoader) {
-  // Check if user already saw brand loader in this session
-  const hasSeenBrand = sessionStorage.getItem('navexa_brand_intro');
-  if (hasSeenBrand) {
-    brandLoader.classList.add('brand-loader--hidden');
-    brandLoader.remove();
-  } else {
-    sessionStorage.setItem('navexa_brand_intro', 'seen');
-    // Allow animation sequence (1.55s total) then smoothly fade out
+  try { sessionStorage.removeItem('navexa_brand_intro'); } catch(e) {}
+  let dismissed = false;
+  const dismissLoader = () => {
+    if (dismissed) return;
+    dismissed = true;
     setTimeout(() => {
       brandLoader.classList.add('brand-loader--hidden');
       setTimeout(() => {
         brandLoader.remove();
       }, 450);
-    }, 1550);
+    }, 1500);
+  };
+
+  if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    dismissLoader();
+  } else {
+    window.addEventListener('DOMContentLoaded', dismissLoader);
   }
 }
 
